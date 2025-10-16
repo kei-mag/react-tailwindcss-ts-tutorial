@@ -4,7 +4,7 @@ Reactについて学ぶための練習用リポジトリ．
 テキスト:[【React18対応】モダンJavaScriptの基礎から始める挫折しないためのReact入門 ― Udemy](https://www.udemy.com/course/modern_javascipt_react_beginner/?couponCode=ACCAGE0923) セクション6: Reactの基本を学ぶ & セクション7: Reactを使ってTODOアプリを作成してみよう
 
 # メモ
-
+- Reactの画面を表す関数（コンポーネント）の名前はPascalCase (大文字始まり)。
 
 ---
 
