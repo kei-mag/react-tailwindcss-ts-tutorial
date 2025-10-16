@@ -5,7 +5,8 @@ Reactについて学ぶための練習用リポジトリ．
 
 # メモ
 - Reactの画面を表す関数（コンポーネント）の名前はPascalCase (大文字始まり)。
-- 関数等を他ファイルから参照可能にしたい場合には関数名の前に`export`をつける。
+- 関数等を他ファイルから参照可能にしたい場合には関数名の前に`export`をつける。  
+  → [[JavaScript]名前付きexportとデフォルトexportの違い](https://qiita.com/tarian/items/0004eb9ef04123000292)
 - HTMLを返す関数を書く記法を**JSX**という。
 - JSXでJSの処理を書く際は必ず`{}`で囲う。
 - CSSを定義するときは`style`タグにJavaScriptのオブジェクト`{ ... }`でかく。
