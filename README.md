@@ -9,6 +9,20 @@ Reactについて学ぶための練習用リポジトリ．
 - HTMLを返す関数を書く記法を**JSX**という。
 - JSXでJSの処理を書く際は必ず`{}`で囲う。
 - CSSを定義するときは`style`タグにJavaScriptのオブジェクト`{ ... }`でかく。
+- コンポーネントには引数を渡すことができる。この引数をpropsという。propsはJavaScriptオブジェクトとして渡される。
+  ```jsx
+  const MyComponent = (props) => {
+    console.log(`色は${props.color}です。`);
+    console.log(`タグ内の文字列はchildrenという引数で受け取ります。`);
+    return <p>{props.color}色の{props.children}</p>
+  }
+  ```
+  呼び出し側
+  ```jsx
+  <MyComponent color="blue">メッセージ</MyComponent>
+  ```
+- 
+
 
 ---
 
