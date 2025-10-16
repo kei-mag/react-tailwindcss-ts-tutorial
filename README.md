@@ -44,6 +44,25 @@ setNum((prev) => prev + 1); // prevは今の値を返す（バッチ処理に影
 setNum((prev) => prev + 1); // prevは先ほどのprev+1を反映しているため、この処理はprev + 2となる。
 ```
 
+`useEffect`関数を使うと、特定の変数が変化したときだけ実行する関数を定義できる。
+```js
+useEffect(function, [variable1, variable2]);
+```
+この書き方の場合、`variable1` or `variable2` が変化した場合に `function` が実行される。
+```js
+useEffect(function, []);
+```
+このように第2引数を空リストにすると、ページロード時のみ実行になる。
+```js
+useEffect(function);
+```
+第2引数を省略すると、毎回実行となる。これは普通に `function` を実行したときと同じ処理である。
+
+### 再レンダリング
+- useStateのstateが変わったとき
+- propsの値が変わったとき
+- 親コンポーネントが再レンダリングされたとき
+
 ---
 
 # Create React App の使い方ガイド
