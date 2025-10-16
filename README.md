@@ -21,8 +21,28 @@ Reactについて学ぶための練習用リポジトリ．
   ```jsx
   <MyComponent color="blue">メッセージ</MyComponent>
   ```
-- 
 
+## 状態管理
+URLのフェッチ結果、ラジオボタンの選択状態、画面の表示内容など、すべてのデータはStateとして管理される必要がある。
+Stateの管理にはReactのhooksを使う (`useState`)。
+
+コンポーネントの**最上位で**`useState`関数を呼ぶ。この関数は、1) stateの値 と、 2) stateを更新するための関数 を返す。
+```js
+const [num, setNum] = useState(0);
+```
+stateの初期値は`useState`関数の引数で指定できる。
+
+詳細は[App.jsxの6~14行目](src/App.jsx)を見るとわかるが、stateを更新するための関数に変更先の値を入れると更新される。
+```js
+setNum(num + 1);
+setNum(num + 1); // +2になる？ → ならない
+```
+ただし、この場合は同一関数内でsetNumを2回連続で呼んでも+2にはならない。なぜなら効率化のため、numの値はjsを一通り読み終わった後にバッチ処理で評価されるからだ。(2回目のsetNumの時もnumの値は1回目の変更を反映していないため、実質同じ処理を2回やるようなことになる)  
+以下のように、setNumに変更先の値を返す関数を入れると意図通りに動く。
+```js
+setNum((prev) => prev + 1); // prevは今の値を返す（バッチ処理に影響されない）
+setNum((prev) => prev + 1); // prevは先ほどのprev+1を反映しているため、この処理はprev + 2となる。
+```
 
 ---
 
