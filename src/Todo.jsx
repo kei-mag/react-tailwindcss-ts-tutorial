@@ -14,10 +14,19 @@ export const Todo = () => {
         if (todoText !== "") {
         const newTodos = [...incompleteTodos, todoText];
         // newTodos.push(todoText); してもいい
+        // incompleteTodos.push(todoText); だと、配列オブジェクト事態が変わらない（内部状態の変更）のため、うまくstate変化しない。
         setIncompleteTodos(newTodos);
         setTodoText("");
         }
-    }
+    };
+
+    const onClickDelete = (index) => {
+        const newTodos = [...incompleteTodos];
+        newTodos.splice(index, 1); // index番目から1つ削除する
+        setIncompleteTodos(newTodos);
+    };
+
+
 
     return (
         <>
@@ -28,12 +37,12 @@ export const Todo = () => {
         <div className="incomplete-area">
             <p>未完了のTODO</p>
             <ul>
-                {incompleteTodos.map((todo) => (
+                {incompleteTodos.map((todo, index) => (
                     <li key={todo}>
                     <div className="list-row">
                         <p>{todo}</p>
                         <button>完了</button>
-                        <button>削除</button>
+                        <button onClick={() => {onClickDelete(index);}}>削除</button>
                     </div>
                 </li>
                 ))}
